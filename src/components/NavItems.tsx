@@ -7,11 +7,11 @@ import { useOnClickOutside } from "@/hooks/use-on-click-outside";
 const NavItems = () => {
   const [activeIndex, setActiveIndex] = useState<null | number>(null);
 
+  const navRef = useRef<HTMLDivElement | null>(null);
+
+  useOnClickOutside(navRef, () => setActiveIndex(null));
+  
   const isAnyOpen = activeIndex !== null;
-
-   const navRef = useRef<HTMLDivElement | null>(null);
-
-   useOnClickOutside(navRef, () => setActiveIndex(null));
 
   return (
     <div className="flex gap-4 h-full" ref={navRef}>
